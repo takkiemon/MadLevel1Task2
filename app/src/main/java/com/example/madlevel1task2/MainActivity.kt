@@ -12,7 +12,18 @@ class MainActivity : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+        binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root) // Sets the activity layout resource file.
+        initViews()
+    }
+
+    /**
+     * Set the initial (UI) state of the game.
+     */
+    private fun initViews() {
+        binding.btnSubmit.setOnClickListener {
+            checkAnswers()
+        }
     }
 
     private fun checkAnswers() {
